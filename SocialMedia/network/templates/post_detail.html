@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block body_block %}
+
+<div class="feed" style="width: 30%;
+  height: auto;
+  background-color:black;
+  margin-bottom: 20px ;
+  margin-left: 500px;
+padding-bottom: 10px;">
+
+      <section class="username" style="padding: 10px 30px 0px 30px;
+      display: flex;
+      flex-flow: row;">
+
+          <div class="image" style=" width:35px;
+          height: 35px;
+          border-radius: 50%;">
+
+              <a href="{% url 'profile' %}" style="color: #000000;
+              font-weight: 400;
+              text-decoration: none;
+              font-size: 14px;">
+              <img src="{{p1.profile_image.url}}" style=" width:35px;
+                height: 35px;
+                border-radius: 50%;">
+              </a>
+
+          </div>
+          <div class="id" style=" margin: 10px 15px;">
+              <a href="{% url 'profile' %}" style="text-decoration: none; color: aliceblue;">{{request.user}}</a>
+              <a href="" style="margin-left: 320px;">
+                <i class="fa-solid fa-ellipsis" style="font-size: 15px;color: white;" ></i>
+              </a>
+              
+          </div>
+      </section>
+      
+      <section class="post" style="width: 100%;
+      height: 300px;
+      margin: 10px 0px;">
+
+        
+          <a href="{% url 'profile' %}"><img src="{{data.post_image.url}}" style="width: 100%;
+            height: inherit;"></a>
+
+        
+      </section>
+      <section class="btn-group" style="padding: 0px 10px;">
+
+        
+          <button type="submit" class="btn-love" style="background: none;
+          border: none;
+          cursor: pointer;">
+          <i class="far fa-heart fa-lg" style="color: aliceblue;"></i>
+        </button>
+    
+
+          <button type="submit" class="btn-comment" style="background: none;
+          border: none;
+          cursor: pointer;">
+          <i class="far fa-comment fa-lg" style="color: aliceblue;"></i>
+        </button>
+
+          <button type="button" class="btn-share" style="background: none;
+          border: none;
+          cursor: pointer;">
+          <i class="fa-solid fa-location-arrow" style="font-size: 17px; color: aliceblue;"></i>
+        </button>
+
+          <button type="button" class="btn-bookmark" style="background: none;
+          border: none;
+          cursor: pointer;
+          float: right;">
+          <i class="far fa-bookmark fa-lg" style="color: aliceblue;"></i>
+        </button>
+
+      </section>
+      <section class="caption" style="font-size: 13px;
+      padding: 0px 20px;">
+          
+          <p style="color: aliceblue;"><b><a class="id" href="{% url 'profile' %}" style="color: #efeaea;
+            text-decoration: none;">{{request.user}}</a></b><span style=" color: white;padding-left:8px;" >{{data.caption}}</span></p>
+          <p class="time" style="font-size: 10px;
+          color: white;">{{data.created_date}}</p>
+      </section>
+  </div>
+{% endblock  %}
